@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>All Flooring Install</title>
+        <!-- Bootstrap -->
+        <link href="public/css/bootstrap.min.css" rel="stylesheet">
+        <link href="public/css/main.css" rel="stylesheet">
+        <link href="public/css/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="public/css/toaster.css" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]><link href= "css/bootstrap-theme.css"rel= "stylesheet" >
+
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    </head>
+    <body ng-cloak="">
+        <div id="wrapper" class="container-fluid">
+            <!-- Navigation -->
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span class="navbar-brand"><img src="public/images/logo_afi.png" alt="All Flooring Install" height="45" width="45"></span>
+                </div>
+                <!-- /.navbar-header -->
+                <ul class="nav navbar-top-links ">
+                    <li><a href="#/dashboard">Home</a></li>
+                    <li><a href="#/insCompany">Labor List</a></li>
+                    
+                    <!-- /.dropdown -->
+
+                    <li class="dropdown navbar-right">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                            <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="/dashboard">Dashboard</a></li>       
+
+                            <li class="divider"></li>
+                            <li><a href="#">CHANGE PASSWORD</a></li>
+                            <li class="divider"></li>                        
+                            <li><a href="#/" >Logout</a></li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                    <!-- /.dropdown -->
+                </ul>
+                <!-- /.navbar-top-links -->
+                <!-- /.navbar-static-side -->
+            </nav>
+            <div id="page-wrapper">
+                <div data-ng-view="" id="ng-view" class="slide-animation"></div>
+            </div>
+        </div>
+    </body>     
+
+
+
+    <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+    <!-- Libs -->
+    <script type="text/javascript" src="public/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+    
+    
+    <script type="text/javascript" src="public/js/main.js"></script>
+    <script type="text/javascript" src="public/js/validate.js"></script>
+    <script type="text/javascript" src="public/js/form-validator/jquery.form-validator.min.js"></script>
+
+    <script src="public/js/angular.min.js"></script>
+    <script src="public/js/angular-route.min.js"></script>
+    <script src="public/js/angular-animate.min.js" ></script>
+    <script src="public/js/toaster.js"></script>
+    <script type="text/javascript" src="public/js/ui-bootstrap-tpls-0.12.0.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/data.js"></script>
+    <script src="app/directives.js"></script>
+    <script src="app/authCtrl.js"></script>
+    <script src="app/insCompanyCtrl.js"></script>
+    <script src="app/laborPriceCtrl.js"></script>
+    <script src="public/js/dirPagination.js"></script>
+</html>
+
