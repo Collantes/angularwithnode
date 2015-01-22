@@ -1,0 +1,112 @@
+<div class="row" >
+    <div class="col-lg-12">
+        <h1 class="page-header">Manage Labor Price </h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Manage Labor Price<span class="pull-right"><a ng-click="open()" >Add Price</a></span>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <div class="text-right">
+          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
+          </div>
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr><td colspan="3">
+                                    <form class="form-inline">
+                                        <input ng-model="query" type="text" class="form-control"
+                                               placeholder="Filter by" autofocus>
+                                    </form></td><td colspan="2"><div class="col-xs-4 pull-right">
+              <label for="search">items per page:</label>
+              <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+            </div></td></tr>
+                            <tr>
+                                <th>Type</th>
+                                <th>Name</th>
+                                <th>Unit</th>
+                                <th>Rate</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr dir-paginate="user in dataList | filter:query | itemsPerPage: pageSize" current-page="currentPage" >
+                                <td>{{laborType[user.labor_type-1].labor_type}}</td>
+                                <td>{{user.labor_name}}</td>
+                                <td>{{laborUnit[user.labor_unit-1].labor_unit}}</td>
+                                <td class="center">$ {{user.labor_rate}}</td>
+                                <td class="center"><a  ng-if="!user.$edit" ng-click="open(user.id)">Edit</a> | <a ng-click="removeRecord(user.id)">Delete</a></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
+          </div>
+                </div>
+                <!-- /.table-responsive -->
+ 
+            </div>
+            <!-- /.panel-body -->
+
+        </div>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<script type="text/ng-template" id="add_price_modal">
+    
+	<div class="modal-header">
+		<h3>Add Price</h3>
+	</div>
+	<div class="modal-body">
+		
+		<form name="laborPriceForm" id="laborPriceForm" method="POST">
+			<div class="row">
+                                <div class="col-lg-6">
+                                    
+                                        <div class="form-group">
+                                            <label>Type</label>
+                                            <select  ng-options="value.labor_type for value in laborType track by value.id" id="labor_type" name="labor_type" ng-model="laborPrice.labor_type"  class="form-control" >
+                                           
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" name="labor_name" id="labor_name" ng-model="laborPrice.labor_name"  class="form-control">
+                                        </div>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                <div class="col-lg-6">
+                                    
+                                        <div class="form-group">
+                                            <label>Unit</label>
+                                            <select ng-options="value.labor_unit for value in laborUnit track by value.id" id="labor_unit" name="labor_unit" class="form-control" ng-model="laborPrice.labor_unit">
+                                            
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Rate</label>
+                                            <input type="text" id="labor_rate" name="labor_rate" ng-model="laborPrice.labor_rate"  data-validation-error-msg="Rate value range should be 0 to 99999999.99" data-validation="number" data-validation-allowing="range[0;99999999.99],float" data-validation-decimal-separator="." class="form-control">
+                                            
+                                            
+                                        </div>
+                                   
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+			
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button ng-click="save()" ng-if="laborPrice.id" ng-disabled="laborPrice.$invalid" class="btn btn-primary"><i class="icon-white icon-plus"></i> Save</button>
+		<button ng-click="add()" type="submit" ng-if="!laborPrice.id" ng-disabled="laborPrice.$invalid" class="btn btn-primary"><i class="icon-white icon-plus"></i> Add</button>
+		<button ng-click="cancel()" class="btn">Cancel</button>
+	</div>
+</script>
