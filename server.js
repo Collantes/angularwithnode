@@ -12,12 +12,12 @@ var bodyParser = require("body-parser");
 var jwt      = require("jsonwebtoken");
 var flash    = require('connect-flash');
 var isLogin = require('./config/common');
-var cors = require('cors');
+//var cors = require('cors');
 var app      = express();
 // configuration ===============================================================
 // connect to our database
 
-require('./config/passport')(passport); // pass passport for configuration
+//require('./config/passport')(passport); // pass passport for configuration
 
 app.configure(function() {
 	// set up our express application
@@ -39,7 +39,7 @@ app.configure(function() {
         
         app.use(express.session({ JWT_SECRET: 'vidyapathaisalwaysrunning' } )); // session secret
         
-	app.use(passport.initialize());
+	//app.use(passport.initialize());
 	app.use(passport.session()); // persistent login sessions
 	app.use(flash()); // use connect-flash for flash messages stored in session
        
@@ -52,10 +52,10 @@ app.configure(function() {
 // routes ======================================================================
 
 
-require('./routes/users.js')(app, passport); // load our routes and pass in our app and fully configured passport
+//require('./routes/users.js')(app, passport); // load our routes and pass in our app and fully configured passport
 //require('./routes/installationCompany.js')(app);
 //require('./routes/laborPrice.js')(app);
-require('./routes/api.js')(app);
+//require('./routes/api.js')(app);
 //require('./app/laborPrice.js')(app);
 //
 //app.get('/installationCompany', installationCompany.index); 
